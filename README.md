@@ -3,6 +3,7 @@
 ## 1. Informations générales
 Ce projet fonctionne avec une API présente dans le dossier P9-front-end-dashboard. Tout le frontend est présent dans le dossier Front.
 
+Si vous voulez mieux comprendre le projet la doc se trouve dans le dossier ``` src/out/global.html ```
 ## 2. Installation 
 
 ### a. Prérequis
