@@ -1,0 +1,43 @@
+.containerWidget {
+  padding: 0 100px;
+  display: flex;
+}
+@media screen and (max-width: 1600px) {
+  .containerWidget {
+    padding: 0 50px;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .containerWidget {
+    flex-direction: column;
+  }
+}
+.containerWidget__left {
+  width: 70%;
+}
+@media screen and (max-width: 1500px) {
+  .containerWidget__left {
+    width: 100%;
+  }
+}
+.containerWidget__left__bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.containerWidget__right {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 1500px) {
+  .containerWidget__right {
+    width: 100%;
+    margin-top: 50px;
+    align-items: center;
+  }
+}
+
+/*# sourceMappingURL=users.css.map */

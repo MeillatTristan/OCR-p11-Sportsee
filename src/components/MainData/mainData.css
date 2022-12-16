@@ -1,0 +1,16 @@
+.keyDatas {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+}
+@media screen and (max-width: 1500px) {
+  .keyDatas {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+/*# sourceMappingURL=mainData.css.map */

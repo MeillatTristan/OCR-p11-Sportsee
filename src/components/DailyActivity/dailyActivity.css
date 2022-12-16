@@ -1,0 +1,57 @@
+.ActivityGraph {
+  width: 100% !important;
+  padding: 25px;
+  background: #FBFBFB;
+}
+.ActivityGraph__title {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-left: 20px;
+  color: #20253A;
+  display: inline-block;
+}
+.ActivityGraph .recharts-legend-wrapper {
+  width: max-content !important;
+  margin-top: -25px;
+}
+.ActivityGraph .recharts-legend-wrapper .recharts-legend-item {
+  margin-left: 30px;
+}
+.ActivityGraph .recharts-legend-wrapper .recharts-legend-item-text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #74798C !important;
+  margin-left: 10px;
+}
+.ActivityGraph .recharts-legend-wrapper .recharts-surface {
+  width: 8px;
+}
+.ActivityGraph .recharts-legend-wrapper .custom-tooltip {
+  padding: 4px 12px;
+  background-color: #E60000;
+  border: none !important;
+  outline: none !important;
+}
+.ActivityGraph .recharts-legend-wrapper .custom-tooltip__label {
+  color: white;
+}
+.ActivityGraph .custom-tooltip {
+  padding: 4px 12px;
+  background-color: #E60000;
+}
+.ActivityGraph .custom-tooltip__label {
+  color: white;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 24px;
+}
+.ActivityGraph .custom-tooltip__label.cal {
+  margin-top: 25px;
+}
+
+/*# sourceMappingURL=dailyActivity.css.map */

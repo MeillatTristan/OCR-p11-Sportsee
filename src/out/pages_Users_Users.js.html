@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/Users/Users.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/Users/Users.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import AverageTime from '../../components/AverageTime/AverageTime';
+import DailyActivity from '../../components/DailyActivity/DailyActivity';
+import MainData from '../../components/MainData/MainData';
+import PerformanceChart from '../../components/PerformanceChart/PerformanceChart';
+import ScoreChart from '../../components/ScoreChart/ScoreChart';
+import Title from '../../components/Title/Title';
+import { getData } from '../../Repository/GetData';
+
+import "./users.css"
+
+/**
+ * Component for showing details of the user.
+ * 
+ * @example
+ * &lt;Route path="/users/:id" element={ &lt;Users /> } />
+ */
+function Users(props) {
+  const [dataMain, setDataMain] = useState([]);
+  const [averageSessions, setAverageSessions] = useState([]);
+  const [performance, setPerformance] = useState({});
+  const [activity, setActivity] = useState([]);
+  const { id } = useParams();
+  
+  //mainData
+  useEffect(() => {
+    const data = async () => {
+      const request = await getData("USER_MAIN_DATA",id);
+      if (!request) return alert("data error");
+      setDataMain(request.data);
+    };
+    data();
+  }, [id]);
+
+  //sessions
+  useEffect(() => {
+    const data = async () => {
+      const request = await getData("USER_ACTIVITY",id);
+      if (!request) return alert("data error");
+      setActivity(request.data);
+    };
+    data();
+  }, [id]);
+
+  //averageSessions
+  useEffect(() => {
+    const data = async () => {
+      const request = await getData("USER_AVERAGE_SESSIONS",id);
+      if (!request) return alert("data error");
+      request.data.sessions.forEach(session => {
+        if(session.day === 1) {
+          session.day = "L";
+        } else if (session.day === 2) {
+          session.day = "M";
+        } else if (session.day === 3) {
+          session.day = "M";
+        } else if (session.day === 4) {
+          session.day = "J";
+        } else if (session.day === 5) {
+          session.day = "V";
+        } else if (session.day === 6) {
+          session.day = "S";
+        } else if (session.day === 7) {
+          session.day = "D";
+        }
+      });
+      setAverageSessions(request.data);
+    };
+    data();
+  }, [id]);
+
+  //performance
+  useEffect(() => {
+    const data = async () => {
+      const request = await getData("USER_PERFORMANCE",id);
+      if (!request) return alert("data error");
+      request.data.data.forEach(data => {
+        data.kind = request.data.kind[data.kind]
+      })
+      setPerformance(request.data);
+    };
+    data();
+  }, [id]);
+  if (dataMain.length === 0) return null;
+
+  return (
+    &lt;div>
+      &lt;Title name={dataMain.userInfos.firstName} />
+      &lt;div className='containerWidget'>
+        &lt;div className='containerWidget__left'>
+          &lt;DailyActivity activity={activity.sessions} />
+          &lt;div className='containerWidget__left__bottom'>
+            &lt;AverageTime sessions={averageSessions.sessions} />
+            &lt;PerformanceChart performance={performance} />
+            &lt;ScoreChart score={dataMain.todayScore} />
+          &lt;/div>
+        &lt;/div>
+        &lt;div className='containerWidget__right'>
+         &lt;MainData data={dataMain.keyData} /> 
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  );
+}
+
+export default Users;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AverageTime">AverageTime</a></li><li><a href="global.html#DailyActivity">DailyActivity</a></li><li><a href="global.html#KeyDataCard">KeyDataCard</a></li><li><a href="global.html#MainData">MainData</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#ScoreChart">ScoreChart</a></li><li><a href="global.html#Users">Users</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserInfos">getUserInfos</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#useApi">useApi</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Dec 09 2022 17:42:19 GMT+0100 (UTC+01:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+.title {
+  width: 100%;
+  padding: 70px 100px;
+}
+.title h1 {
+  font-weight: 500;
+  font-size: 4.8rem;
+  color: black;
+  margin-bottom: 40px;
+}
+.title h1 .red {
+  color: #FF0101;
+}
+.title h3 {
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+/*# sourceMappingURL=title.css.map */
