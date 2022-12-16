@@ -9,7 +9,7 @@ Ce projet fonctionne avec une API présente dans le dossier P9-front-end-dashboa
 NPM (ou yarn) et [NodeJS (version 12.18)](https://nodejs.org/en/) 
 
 ### b. Installation du backend et lancement de l'API
- Dans le dossier P9-front-end-dashboard lancer la commande :
+Cloner le backend (https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard) et lancer la commande :
  ``` npm install ```
  pour installer les dépendances
  
